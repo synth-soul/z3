@@ -620,6 +620,7 @@ class theory_lra::imp {
                     if (ctx().relevancy()) ctx().add_relevancy_dependency(n, mod);
                 }
                 else if (a.is_mod(n, n1, n2)) {
+                    if (!a.is_numeral(n2, r) || r.is_zero()) found_underspecified(n);
                     if (!ctx().relevancy()) mk_idiv_mod_axioms(n1, n2);                    
                 }
                 else if (a.is_rem(n, n1, n2)) {
